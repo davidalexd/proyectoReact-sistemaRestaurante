@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head('Users')"></head>
+<body class="position-relative" data-bs-spy="scroll" data-bs-target="sidenavbar" data-bs-offset="62">
+
+  <header th:replace="fragments/navbar :: header"></header>
+
+  <!-- Wrapper -->
+  <div class="wrapper d-flex">
+      <aside th:replace="fragments/sidebar :: sidebar"></aside>
+
+      <!-- Main -->
+      <main class="content p-4">
+          <div class="container-fluid">
+              <div
+                      data-bs-spy="scroll"
+                      data-bs-target="#navbar-example3"
+                      data-bs-offset="0"
+                      tabindex="0"
+              >
+                  <h2>Users and roles</h2>
+                  <section id="user-schema" class="pt-4">
+                      <h3 class="fw-light fs-3">User Schema</h3>
+                      <table class="table">
+                          <thead>
+                          <tr>
+                              <th>Key</th>
+                              <th>Type</th>
+                              <th>Description</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr>
+                              <td>idUser</td>
+                              <td>int</td>
+                              <td>The Id of the user</td>
+                          </tr>
+                          <tr>
+                              <td>roles</td>
+                              <td>array</td>
+                              <td>The roles that the user have</td>
+                          </tr>
+                          <tr>
+                              <td>username</td>
+                              <td>string</td>
+                              <td>The username</td>
+                          </tr>
+                          <tr>
+                              <td>email</td>
+                              <td>string</td>
+                              <td>The email of the user</td>
+                          </tr>
+                          <tr>
+                              <td>createdAt</td>
+                              <td>string</td>
+                              <td>Timestamp when was created the user</td>
+                          </tr>
+                          <tr>
+                              <td>updatedAt</td>
+                              <td>string</td>
+                              <td>Timestamp when was updated the user</td>
+                          </tr>
+                          </tbody>
+                      </table>
+                  </section>
+                  <p class="lead">
+                      Use the <i>/users</i> resource to get, create, update or delete
+                      users
+                  </p>
+                  <!-- List users  -->
+                  <section
+                          class="mb-5 border-bottom border-secondary pb-5"
+                          id="list-users"
+                  >
+                      <h3>List of users</h3>
+                      <div class="row">
+                          <div class="col-5">
+                              <div class="d-flex">
+                    <span
+                            class="text-center http-method rounded-start bg-success text-white px-2 py-2"
+                    >GET</span
+                    >
+                                  <span
+                                          class="flex-fill bg-light px-3 py-2 rounded-end border-secondary border-top border-end border-bottom"
+                                  >/api/users</span
+                                  >
+                              </div>
+                          </div>
+                          <div class="col-7">
+                              <button
+                                      type="button"
+                                      class="btn btn-primary"
+                                      data-bs-toggle="modal"
+                                      data-bs-target="#exampleModal"
+                              >
+                                  See example
+                              </button>
+                          </div>
+                      </div>
+                  </section>
+                  <!-- End List user -->
+
+                  <!-- Single user -->
+                  <section
+                          class="mb-5 border-bottom border-secondary pb-5"
+                          id="single-user"
+                  >
+                      <h3>Get a single user</h3>
+                      <div class="row">
+                          <div class="col-5">
+                              <div class="d-flex">
+                    <span
+                            class="text-center http-method rounded-start bg-success text-white px-2 py-2"
+                    >GET</span
+                    >
+                                  <span
+                                          class="flex-fill bg-light px-3 py-2 rounded-end border-secondary border-top border-end border-bottom"
+                                  >/api/users/{idUser}</span
+                                  >
+                              </div>
+                          </div>
+                          <div class="col-7">
+                              <button
+                                      type="button"
+                                      class="btn btn-primary"
+                                      data-bs-toggle="modal"
+                                      data-bs-target="#exampleModal"
+                              >
+                                  See example
+                              </button>
+                          </div>
+                      </div>
+                  </section>
+                  <!-- End single user -->
+
+                  <!-- Profile image -->
+                  <section
+                          class="mb-5 border-bottom border-secondary pb-5"
+                          id="profile-image"
+                  >
+                      <h3>Profile image</h3>
+                      <div class="row">
+                          <div class="col-5">
+                              <div class="d-flex mb-3">
+                    <span
+                            class="text-center http-method rounded-start bg-success text-white px-2 py-2"
+                    >GET</span
+                    >
+                                  <span
+                                          class="flex-fill bg-light px-3 py-2 rounded-end border-secondary border-top border-end border-bottom"
+                                  >/api/users/{idUser}/image</span
+                                  >
+                              </div>
+                          </div>
+                          <div class="col-7">
+                              <button
+                                      type="button"
+                                      class="btn btn-primary"
+                                      data-bs-toggle="modal"
+                                      data-bs-target="#exampleModal"
+                              >
+                                  See example
+                              </button>
+                          </div>
+                      </div>
+                  </section>
+                  <!-- End profile image -->
+
+                  <!-- Save profile image -->
+                  <section
+                          class="mb-5 border-bottom border-secondary pb-5"
+                          id="save-profile-image"
+                  >
+                      <h3>Save profile image</h3>
+                      <div class="row">
+                          <div class="col-5">
+                              <div class="d-flex mb-3">
+                    <span
+                            class="text-center http-method rounded-start bg-primary text-white px-2 py-2"
+                    >POST</span
+                    >
+                                  <span
+                                          class="flex-fill bg-light px-3 py-2 rounded-end border-secondary border-top border-end border-bottom"
+                                  >/api/users/{idUser}/image</span
+                                  >
+                              </div>
+                              <h4 class="fs-5">Request body</h4>
+                              <div class="list-group">
+                                  <div class="list-group-item">
+                                      <span class="font-monospace">file</span>
+                                      <span class="text-muted">MultipartFile</span>
+                                      <span class="text-danger fw-bolder">required</span>
+                                      <p class="mt-1">The profile image to be saved</p>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-7">
+                              <button
+                                      type="button"
+                                      class="btn btn-primary"
+                                      data-bs-toggle="modal"
+                                      data-bs-target="#exampleModal"
+                              >
+                                  See example
+                              </button>
+                          </div>
+                      </div>
+                  </section>
+                  <!-- End save profile image -->
+
+                  <!-- Summary users -->
+                  <section
+                          class="mb-5 border-bottom border-secondary pb-5"
+                          id="total-users"
+                  >
+                      <h3>Total users</h3>
+                      <div class="row">
+                          <div class="col-5">
+                              <div class="d-flex mb-3">
+                    <span
+                            class="text-center http-method rounded-start bg-success text-white px-2 py-2"
+                    >GET</span
+                    >
+                                  <span
+                                          class="flex-fill bg-light px-3 py-2 rounded-end border-secondary border-top border-end border-bottom"
+                                  >/api/users/summary</span
+                                  >
+                              </div>
+                          </div>
+                          <div class="col-7">
+                              <button
+                                      type="button"
+                                      class="btn btn-primary"
+                                      data-bs-toggle="modal"
+                                      data-bs-target="#exampleModal"
+                              >
+                                  See example
+                              </button>
+                          </div>
+                      </div>
+                  </section>
+                  <!-- End summary users -->
+
+                  <!-- Profile schema -->
+                  <section id="profile-schema" class="pt-4">
+                      <h3 class="fw-light fs-3">Profile Schema</h3>
+                      <table class="table">
+                          <thead>
+                          <tr>
+                              <th>Key</th>
+                              <th>Type</th>
+                              <th>Description</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr>
+                              <td>idProfile</td>
+                              <td>int</td>
+                              <td>The Id of the profile</td>
+                          </tr>
+                          <tr>
+                              <td>user</td>
+                              <td>(object)</td>
+                              <td>The user that the profile belongs</td>
+                          </tr>
+                          <tr>
+                              <td>firstname</td>
+                              <td>string</td>
+                              <td>The firstname of the profile</td>
+                          </tr>
+                          <tr>
+                              <td>lastname</td>
+                              <td>string</td>
+                              <td>The lastname of the profile</td>
+                          </tr>
+                          <tr>
+                              <td>profilePicture</td>
+                              <td>string</td>
+                              <td>The profile picture of the profile</td>
+                          </tr>
+                          <tr>
+                              <td>phoneNumber</td>
+                              <td>string</td>
+                              <td>The phone number of the profile</td>
+                          </tr>
+                          <tr>
+                              <td>address</td>
+                              <td>string</td>
+                              <td>The address of the profile</td>
+                          </tr>
+                          </tbody>
+                      </table>
+                  </section>
+                  <!-- End profile schema -->
+
+
+                  <!-- Single user -->
+                  <section
+                          class="mb-5 border-bottom border-secondary pb-5"
+                          id="user-profile"
+                  >
+                      <h3>User profile</h3>
+                      <div class="row">
+                          <div class="col-5">
+                              <div class="d-flex">
+                    <span
+                            class="text-center http-method rounded-start bg-success text-white px-2 py-2"
+                    >GET</span
+                    >
+                                  <span
+                                          class="flex-fill bg-light px-3 py-2 rounded-end border-secondary border-top border-end border-bottom"
+                                  >/api/users/{idUser}/profile</span
+                                  >
+                              </div>
+                          </div>
+                          <div class="col-7">
+                              <button
+                                      type="button"
+                                      class="btn btn-primary"
+                                      data-bs-toggle="modal"
+                                      data-bs-target="#exampleModal"
+                              >
+                                  See example
+                              </button>
+                          </div>
+                      </div>
+                  </section>
+                  <!-- End single user -->
+
+                  <!-- profile user -->
+                  <section
+                          class="mb-5 border-bottom border-secondary pb-5"
+                          id="create-update-profile"
+                  >
+                      <h3>Create or update profile</h3>
+                      <div class="row">
+                          <div class="col-5">
+                              <div class="d-flex mb-3">
+                    <span
+                            class="text-center http-method rounded-start bg-primary text-white px-2 py-2"
+                    >GET</span
+                    >
+                                  <span
+                                          class="flex-fill bg-light px-3 py-2 rounded-end border-secondary border-top border-end border-bottom"
+                                  >/api/users/{idUser}/profile</span
+                                  >
+                              </div>
+                              <h4 class="fs-5">Request body</h4>
+                              <div class="list-group">
+                                  <div class="list-group-item">
+                                      <span class="font-monospace">firstname</span>
+                                      <span class="text-muted">string</span>
+                                      <span class="text-danger fw-bolder">required</span>
+                                      <p class="mt-1">The firstname of the profile</p>
+                                  </div>
+                                  <div class="list-group-item">
+                                      <span class="font-monospace">lastname</span>
+                                      <span class="text-muted">string</span>
+                                      <span class="text-danger fw-bolder">required</span>
+                                      <p class="mt-1">The lastname of the profile</p>
+                                  </div>
+                                  <div class="list-group-item">
+                                      <span class="font-monospace">phoneNumber</span>
+                                      <span class="text-muted">string</span>
+                                      <span class="text-danger fw-bolder">required</span>
+                                      <p class="mt-1">The phone number of the profile</p>
+                                  </div>
+                                  <div class="list-group-item">
+                                      <span class="font-monospace">address</span>
+                                      <span class="text-muted">string</span>
+                                      <span class="text-danger fw-bolder">required</span>
+                                      <p class="mt-1">The address of the profile</p>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-7">
+                              <button
+                                      type="button"
+                                      class="btn btn-primary"
+                                      data-bs-toggle="modal"
+                                      data-bs-target="#exampleModal"
+                              >
+                                  See example
+                              </button>
+                          </div>
+                      </div>
+                  </section>
+                  <!-- End profile user -->
+
+              </div>
+          </div>
+      </main>
+      <!-- End main -->
+  </div>
+  <!-- End wrapper -->
+
+  <!-- Footer -->
+  <div th:replace="fragments/footer :: div"></div>
+  <!-- End footer -->
+</body>
+</html>

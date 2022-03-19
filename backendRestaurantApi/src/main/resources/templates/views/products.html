@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head('Products')"></head>
+<body class="position-relative" data-bs-spy="scroll" data-bs-target="sidenavbar" data-bs-offset="62">
+
+  <header th:replace="fragments/navbar :: header"></header>
+
+  <!-- Wrapper -->
+  <div class="wrapper d-flex">
+      <aside th:replace="fragments/sidebar :: sidebar"></aside>
+      <!-- Main -->
+      <main class="content p-4">
+          <div class="container-fluid">
+              <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-offset="0" tabindex="0">
+                  <h2>Products(resource groups)</h2>
+                  <section id="product-schema" class="pt-4">
+                      <h3 class="fw-light fs-3">Product Schema</h3>
+                      <table class="table">
+                          <thead>
+                          <tr>
+                              <th>Key</th>
+                              <th>Type</th>
+                              <th>Description</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr>
+                              <td>idProduct</td>
+                              <td>long</td>
+                              <td>The Id of the product</td>
+                          </tr>
+                          <tr>
+                              <td>category</td>
+                              <td>
+                                  <a href="">
+                                      Category
+                                  </a>
+                              </td>
+                              <td>The Category of the product</td>
+                          </tr>
+                          <tr>
+                              <td>nameProduct</td>
+                              <td>string</td>
+                              <td>Name of the product</td>
+                          </tr>
+                          <tr>
+                              <td>priceProduct</td>
+                              <td>long</td>
+                              <td>Price of the product</td>
+                          </tr>
+                          <tr>
+                              <td>availableProduct</td>
+                              <td>boolean</td>
+                              <td>If the product is available</td>
+                          </tr>
+                          <tr>
+                              <td>description</td>
+                              <td>string</td>
+                              <td>The description of the product</td>
+                          </tr>
+                          <tr>
+                              <td>image</td>
+                              <td>string</td>
+                              <td>The description of the product</td>
+                          </tr>
+                          </tbody>
+                      </table>
+                  </section>
+                  <p class="lead">Use the <i>/products</i> resource to get, create, update or delete products</p>
+                  <!-- List products  -->
+                  <section class="mb-5 border-bottom border-secondary pb-5" id="list-products">
+                      <h3>List of products</h3>
+                      <div class="row">
+                          <div class="col-5">
+                              <div class="d-flex">
+                                  <span class="text-center http-method rounded-start bg-success text-white px-2 py-2">GET</span>
+                                  <span class="flex-fill bg-light px-3 py-2 rounded-end border-secondary border-top border-end border-bottom ">/api/products</span>
+                              </div>
+                          </div>
+                          <div class="col-7">
+                              <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                      data-bs-target="#exampleModal">
+                                  See example
+                              </button>
+                          </div>
+                      </div>
+                  </section>
+                  <!-- End List products -->
+
+                  <!-- Single product -->
+                  <section class="mb-5 border-bottom border-secondary pb-5" id="single-product">
+                      <h3>Get a single product</h3>
+                      <div class="row">
+                          <div class="col-5">
+                              <div class="d-flex">
+                                  <span class="text-center http-method  rounded-start bg-success text-white px-2 py-2">GET</span>
+                                  <span class="flex-fill bg-light px-3 py-2 rounded-end border-secondary border-top border-end border-bottom ">/api/products/{idProduct}</span>
+                              </div>
+                          </div>
+                          <div class="col-7">
+                              <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                      data-bs-target="#exampleModal">
+                                  See example
+                              </button>
+                          </div>
+                      </div>
+                  </section>
+                  <!-- End single product -->
+
+                  <!-- Image product -->
+                  <section class="mb-5 border-bottom border-secondary pb-5" id="product-image">
+                      <h3>Get product image by Id</h3>
+                      <div class="row">
+                          <div class="col-5">
+                              <div class="d-flex">
+                                  <span class="text-center http-method  rounded-start bg-success text-white px-2 py-2">GET</span>
+                                  <span class="flex-fill bg-light px-3 py-2 rounded-end border-secondary border-top border-end border-bottom ">/api/products/{idProduct}/image</span>
+                              </div>
+                          </div>
+                          <div class="col-7">
+                              <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                      data-bs-target="#exampleModal">
+                                  See example
+                              </button>
+                          </div>
+                      </div>
+                  </section>
+                  <!-- End image product -->
+
+                  <!-- Save product -->
+                  <section class="mb-5 border-bottom border-secondary pb-5" id="save-product">
+                      <h3>Save product</h3>
+                      <div class="row">
+                          <div class="col-5">
+                              <div class="d-flex mb-3">
+                                  <span class="text-center http-method  rounded-start bg-primary text-white px-2 py-2">POST</span>
+                                  <span class="flex-fill bg-light px-3 py-2 rounded-end border-secondary border-top border-end border-bottom ">/api/products/{idProdut}/image</span>
+                              </div>
+                              <h4 class="fs-5">Request body</h4>
+                              <div class="list-group">
+                                  <div class="list-group-item">
+                                      <span class="font-monospace">Category</span> <span
+                                          class="text-muted">(object)</span> <span
+                                          class="text-danger fw-bolder">required</span></span>
+                                      <p class="mt-1">The id of the category</p>
+                                  </div>
+                                  <div class="list-group-item">
+                                      <span class="font-monospace">nameProduct</span> <span
+                                          class="text-muted">string</span> <span
+                                          class="text-danger fw-bolder">required</span></span>
+                                      <p class="mt-1">The name of the product</p>
+                                  </div>
+                                  <div class="list-group-item">
+                                      <span class="font-monospace">priceProduct</span> <span
+                                          class="text-muted">string</span> <span
+                                          class="text-danger fw-bolder">required</span></span>
+                                      <p class="mt-1">The name of the product</p>
+                                  </div>
+                                  <div class="list-group-item">
+                                      <span class="font-monospace">availableProduct</span> <span
+                                          class="text-muted">string</span> <span
+                                          class="text-danger fw-bolder">required</span></span>
+                                      <p class="mt-1">The name of the product</p>
+                                  </div>
+                                  <div class="list-group-item">
+                                      <span class="font-monospace">description</span> <span
+                                          class="text-muted">string</span> <span
+                                          class="text-danger fw-bolder">required</span></span>
+                                      <p class="mt-1">The name of the product</p>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-7">
+                              <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                      data-bs-target="#exampleModal">
+                                  See example
+                              </button>
+                          </div>
+                      </div>
+                  </section>
+                  <!-- End save product -->
+
+                  <!-- Save image product -->
+                  <section class="mb-5 border-bottom border-secondary pb-5" id="save-product-image">
+                      <h3>Save image product</h3>
+                      <div class="row">
+                          <div class="col-5">
+                              <div class="d-flex mb-3">
+                                  <span class="text-center http-method  rounded-start bg-primary text-white px-2 py-2">POST</span>
+                                  <span class="flex-fill bg-light px-3 py-2 rounded-end border-secondary border-top border-end border-bottom ">/api/products</span>
+                              </div>
+                              <h4 class="fs-5">Request body</h4>
+                              <div class="list-group">
+                                  <div class="list-group-item">
+                                      <span class="font-monospace">Image</span> <span
+                                          class="text-muted">(MultipartFile)</span> <span
+                                          class="text-danger fw-bolder">required</span></span>
+                                      <p class="mt-1">The image to be asign to the product</p>
+                                  </div>
+
+                              </div>
+                          </div>
+                          <div class="col-7">
+                              <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                      data-bs-target="#exampleModal">
+                                  See example
+                              </button>
+                          </div>
+                      </div>
+                  </section>
+                  <!-- End image product -->
+
+                  <!-- Update product -->
+                  <section class="mb-5 border-bottom border-secondary pb-5" id="update-product">
+                      <h3>Update a product</h3>
+                      <div class="row">
+                          <div class="col-5">
+                              <div class="d-flex mb-3">
+                                  <span class="text-center http-method  rounded-start bg-warning text-white px-2 py-2">PATCH</span>
+                                  <span class="flex-fill bg-light px-3 py-2 rounded-end border-secondary border-top border-end border-bottom ">/api/products/{idProduct}</span>
+                              </div>
+                              <h4 class="fs-5">Request body</h4>
+                              <div class="list-group">
+                                  <div class="list-group-item">
+                                      <span class="font-monospace">Category</span> <span
+                                          class="text-muted">(object)</span> <span
+                                          class="text-danger fw-bolder">required</span></span>
+                                      <p class="mt-1">The id of the category</p>
+                                  </div>
+                                  <div class="list-group-item">
+                                      <span class="font-monospace">nameProduct</span> <span
+                                          class="text-muted">string</span> <span
+                                          class="text-danger fw-bolder">required</span></span>
+                                      <p class="mt-1">The name of the product</p>
+                                  </div>
+                                  <div class="list-group-item">
+                                      <span class="font-monospace">priceProduct</span> <span
+                                          class="text-muted">string</span> <span
+                                          class="text-danger fw-bolder">required</span></span>
+                                      <p class="mt-1">The name of the product</p>
+                                  </div>
+                                  <div class="list-group-item">
+                                      <span class="font-monospace">availableProduct</span> <span
+                                          class="text-muted">string</span> <span
+                                          class="text-danger fw-bolder">required</span></span>
+                                      <p class="mt-1">The name of the product</p>
+                                  </div>
+                                  <div class="list-group-item">
+                                      <span class="font-monospace">description</span> <span
+                                          class="text-muted">string</span> <span
+                                          class="text-danger fw-bolder">required</span></span>
+                                      <p class="mt-1">The name of the product</p>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-7">
+                              <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                      data-bs-target="#exampleModal">
+                                  See example
+                              </button>
+                          </div>
+                      </div>
+                  </section>
+                  <!-- End Update product -->
+
+                  <!-- Delete product -->
+                  <section class="mb-5 border-bottom border-secondary pb-5" id="delete-product">
+                      <h3>Delete a product</h3>
+                      <div class="row">
+                          <div class="col-5">
+                              <div class="d-flex mb-3">
+                                  <span class="text-center http-method  rounded-start bg-danger text-white px-2 py-2">DELETE</span>
+                                  <span class="flex-fill bg-light px-3 py-2 rounded-end border-secondary border-top border-end border-bottom">/api/products/{idProduct}</span>
+                              </div>
+                          </div>
+                          <div class="col-7">
+                              <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                      data-bs-target="#exampleModal">
+                                  See example
+                              </button>
+                          </div>
+                      </div>
+                  </section>
+                  <!-- End delete product -->
+
+              </div>
+          </div>
+      </main>
+      <!-- End main -->
+  </div>
+  <!-- End wrapper -->
+
+  <!-- Footer -->
+  <div th:replace="fragments/footer :: div"></div>
+  <!-- End footer -->
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head('Error')"></head>
+<body class="position-relative" data-bs-spy="scroll" data-bs-target="sidenavbar" data-bs-offset="62">
+
+<header th:replace="fragments/navbar :: header"></header>
+
+<main class="mt-5 container" style="max-width: 600px">
+    <div class="row pt-5">
+        <div class="col-12 d-flex">
+            <i class="fs-1 far fa-frown me-2"></i>
+            <h1>Ups! Something went wrong</h1>
+        </div>
+        <div class="col-12">
+            <p class="fs-1 text-center">Error 404</p>
+        </div>
+    </div>
+</main>
+
+<!-- Footer -->
+<div th:replace="fragments/footer :: div"></div>
+<!-- End footer -->
+</body>
+</html>

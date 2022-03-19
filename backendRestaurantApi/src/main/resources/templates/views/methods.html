@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head('Methods')"></head>
+<body class="position-relative" data-bs-spy="scroll" data-bs-target="sidenavbar" data-bs-offset="62">
+
+  <header th:replace="fragments/navbar :: header"></header>
+
+  <!-- Wrapper -->
+  <div class="wrapper d-flex">
+      <aside th:replace="fragments/sidebar :: sidebar"></aside>
+      <!-- Main -->
+      <main class="content p-4">
+          <div class="container-fluid">
+              <div
+                      data-bs-spy="scroll"
+                      data-bs-target="#navbar-example3"
+                      data-bs-offset="0"
+                      tabindex="0"
+              >
+                  <h2>Payments methods(resource groups)</h2>
+                  <section id="payment-method-schema" class="pt-4">
+                      <h3 class="fw-light fs-3">Payment Schema</h3>
+                      <table class="table">
+                          <thead>
+                          <tr>
+                              <th>Key</th>
+                              <th>Type</th>
+                              <th>Description</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr>
+                              <td>idPaymentMethod</td>
+                              <td>int</td>
+                              <td>The Id of the payment method</td>
+                          </tr>
+                          <tr>
+                              <td>namePaymentMethod</td>
+                              <td>string</td>
+                              <td>The name of the payment method</td>
+                          </tr>
+                          <tr>
+                              <td>description</td>
+                              <td>string</td>
+                              <td>Details</td>
+                          </tr>
+                          </tbody>
+                      </table>
+                  </section>
+                  <p class="lead">
+                      Use the <i>/paymentmethods</i> resource to get, create, update or
+                      delete payment methods
+                  </p>
+                  <!-- List payment methods  -->
+                  <section
+                          class="mb-5 border-bottom border-secondary pb-5"
+                          id="list-payment-methods"
+                  >
+                      <h3>List of payment methods</h3>
+                      <div class="row">
+                          <div class="col-5">
+                              <div class="d-flex">
+                    <span
+                            class="text-center http-method rounded-start bg-success text-white px-2 py-2"
+                    >GET</span
+                    >
+                                  <span
+                                          class="flex-fill bg-light px-3 py-2 rounded-end border-secondary border-top border-end border-bottom"
+                                  >/api/paymentmethods</span
+                                  >
+                              </div>
+                          </div>
+                          <div class="col-7">
+                              <button
+                                      type="button"
+                                      class="btn btn-primary"
+                                      data-bs-toggle="modal"
+                                      data-bs-target="#exampleModal"
+                              >
+                                  See example
+                              </button>
+                          </div>
+                      </div>
+                  </section>
+                  <!-- End List payment methods -->
+
+                  <!-- Single payment methods -->
+                  <section
+                          class="mb-5 border-bottom border-secondary pb-5"
+                          id="payment-method-by-id"
+                  >
+                      <h3>Get a single payment methods</h3>
+                      <div class="row">
+                          <div class="col-5">
+                              <div class="d-flex">
+                    <span
+                            class="text-center http-method rounded-start bg-success text-white px-2 py-2"
+                    >GET</span
+                    >
+                                  <span
+                                          class="flex-fill bg-light px-3 py-2 rounded-end border-secondary border-top border-end border-bottom"
+                                  >/api/paymentmethods/{idPaymentMethod}</span
+                                  >
+                              </div>
+                          </div>
+                          <div class="col-7">
+                              <button
+                                      type="button"
+                                      class="btn btn-primary"
+                                      data-bs-toggle="modal"
+                                      data-bs-target="#exampleModal"
+                              >
+                                  See example
+                              </button>
+                          </div>
+                      </div>
+                  </section>
+                  <!-- End single payment method -->
+
+                  <!-- Save payment method -->
+                  <section
+                          class="mb-5 border-bottom border-secondary pb-5"
+                          id="create-payment-method"
+                  >
+                      <h3>Create payment method</h3>
+                      <div class="row">
+                          <div class="col-5">
+                              <div class="d-flex mb-3">
+                    <span
+                            class="text-center http-method rounded-start bg-primary text-white px-2 py-2"
+                    >POST</span
+                    >
+                                  <span
+                                          class="flex-fill bg-light px-3 py-2 rounded-end border-secondary border-top border-end border-bottom"
+                                  >/api/paymentmethods</span
+                                  >
+                              </div>
+                              <h4 class="fs-5">Request body</h4>
+                              <div class="list-group">
+                                  <div class="list-group-item">
+                                      <span class="font-monospace">namePaymentMethod</span>
+                                      <span class="text-muted">string</span>
+                                      <span class="text-danger fw-bolder">required</span>
+                                      <p class="mt-1">The name of the payment method</p>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-7">
+                              <button
+                                      type="button"
+                                      class="btn btn-primary"
+                                      data-bs-toggle="modal"
+                                      data-bs-target="#exampleModal"
+                              >
+                                  See example
+                              </button>
+                          </div>
+                      </div>
+                  </section>
+                  <!-- End create payment method -->
+
+                  <!-- Update payment method -->
+                  <section
+                          class="mb-5 border-bottom border-secondary pb-5"
+                          id="update-payment-method"
+                  >
+                      <h3>Update a payment method</h3>
+                      <div class="row">
+                          <div class="col-5">
+                              <div class="d-flex mb-3">
+                    <span
+                            class="text-center http-method rounded-start bg-warning text-white px-2 py-2"
+                    >PUT</span
+                    >
+                                  <span
+                                          class="flex-fill bg-light px-3 py-2 rounded-end border-secondary border-top border-end border-bottom"
+                                  >/api/paymentmethods/{idPaymentMethod}</span
+                                  >
+                              </div>
+                              <h4 class="fs-5">Request body</h4>
+                              <div class="list-group">
+                                  <div class="list-group-item">
+                                      <span class="font-monospace">namePaymentMethod</span>
+                                      <span class="text-muted">string</span>
+                                      <span class="text-danger fw-bolder">required</span>
+                                      <p class="mt-1">The name of the payment method</p>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-7">
+                              <button
+                                      type="button"
+                                      class="btn btn-primary"
+                                      data-bs-toggle="modal"
+                                      data-bs-target="#exampleModal"
+                              >
+                                  See example
+                              </button>
+                          </div>
+                      </div>
+                  </section>
+                  <!-- End Update payment method -->
+
+                  <!-- Delete payment method -->
+                  <section
+                          class="mb-5 border-bottom border-secondary pb-5"
+                          id="delete-payment-method"
+                  >
+                      <h3>Delete a payment method</h3>
+                      <div class="row">
+                          <div class="col-5">
+                              <div class="d-flex mb-3">
+                    <span
+                            class="text-center http-method rounded-start bg-danger text-white px-2 py-2"
+                    >DELETE</span
+                    >
+                                  <span
+                                          class="flex-fill bg-light px-3 py-2 rounded-end border-secondary border-top border-end border-bottom"
+                                  >/api/payamentmethods/{idPaymentMethod}}</span
+                                  >
+                              </div>
+                          </div>
+                          <div class="col-7">
+                              <button
+                                      type="button"
+                                      class="btn btn-primary"
+                                      data-bs-toggle="modal"
+                                      data-bs-target="#exampleModal"
+                              >
+                                  See example
+                              </button>
+                          </div>
+                      </div>
+                  </section>
+                  <!-- End delete payment method -->
+              </div>
+          </div>
+      </main>
+      <!-- End main -->
+  </div>
+  <!-- End wrapper -->
+
+  <!-- Footer -->
+  <div th:replace="fragments/footer :: div"></div>
+  <!-- End footer -->
+</body>
+</html>

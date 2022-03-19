@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head('Categories')"></head>
+<body class="position-relative" data-bs-spy="scroll" data-bs-target="sidenavbar" data-bs-offset="62">
+
+  <header th:replace="fragments/navbar :: header"></header>
+
+  <!-- Wrapper -->
+  <div class="wrapper d-flex">
+      <aside th:replace="fragments/sidebar :: sidebar"></aside>
+      <!-- Main -->
+      <main class="content p-4">
+          <div class="container-fluid">
+              <div
+                      data-bs-spy="scroll"
+                      data-bs-target="#navbar-example3"
+                      data-bs-offset="0"
+                      tabindex="0"
+              >
+                  <h2>Categories(resource groups)</h2>
+                  <section id="category-schema" class="pt-4">
+                      <h3 class="fw-light fs-3">Category Schema</h3>
+                      <table class="table">
+                          <thead>
+                          <tr>
+                              <th>Key</th>
+                              <th>Type</th>
+                              <th>Description</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr>
+                              <td>idCategory</td>
+                              <td>long</td>
+                              <td>The Id of the category</td>
+                          </tr>
+                          <tr>
+                              <td>nameCategory</td>
+                              <td>string</td>
+                              <td>The name of the category</td>
+                          </tr>
+                          <tr>
+                              <td>description</td>
+                              <td>string</td>
+                              <td>Details</td>
+                          </tr>
+                          </tbody>
+                      </table>
+                  </section>
+                  <p class="lead">
+                      Use the <i>/categories</i> resource to get, create, update or
+                      delete categories
+                  </p>
+                  <!-- List categories  -->
+                  <section
+                          class="mb-5 border-bottom border-secondary pb-5"
+                          id="list-categories"
+                  >
+                      <h3>List of categories</h3>
+                      <div class="row">
+                          <div class="col-5">
+                              <div class="d-flex">
+                    <span
+                            class="text-center http-method rounded-start bg-success text-white px-2 py-2"
+                    >GET</span
+                    >
+                                  <span
+                                          class="flex-fill bg-light px-3 py-2 rounded-end border-secondary border-top border-end border-bottom"
+                                  >/api/categories</span
+                                  >
+                              </div>
+                          </div>
+                          <div class="col-7">
+                              <button
+                                      type="button"
+                                      class="btn btn-primary"
+                                      data-bs-toggle="modal"
+                                      data-bs-target="#exampleModal"
+                              >
+                                  See example
+                              </button>
+                          </div>
+                      </div>
+                  </section>
+                  <!-- End List category -->
+
+                  <!-- Single category -->
+                  <section
+                          class="mb-5 border-bottom border-secondary pb-5"
+                          id="single-category"
+                  >
+                      <h3>Get a single category</h3>
+                      <div class="row">
+                          <div class="col-5">
+                              <div class="d-flex">
+                    <span
+                            class="text-center http-method rounded-start bg-success text-white px-2 py-2"
+                    >GET</span
+                    >
+                                  <span
+                                          class="flex-fill bg-light px-3 py-2 rounded-end border-secondary border-top border-end border-bottom"
+                                  >/api/categories/{idCategory}</span
+                                  >
+                              </div>
+                          </div>
+                          <div class="col-7">
+                              <button
+                                      type="button"
+                                      class="btn btn-primary"
+                                      data-bs-toggle="modal"
+                                      data-bs-target="#exampleModal"
+                              >
+                                  See example
+                              </button>
+                          </div>
+                      </div>
+                  </section>
+                  <!-- End single category -->
+
+                  <!-- Save category -->
+                  <section
+                          class="mb-5 border-bottom border-secondary pb-5"
+                          id="save-category"
+                  >
+                      <h3>Save category</h3>
+                      <div class="row">
+                          <div class="col-5">
+                              <div class="d-flex mb-3">
+                    <span
+                            class="text-center http-method rounded-start bg-primary text-white px-2 py-2"
+                    >POST</span
+                    >
+                                  <span
+                                          class="flex-fill bg-light px-3 py-2 rounded-end border-secondary border-top border-end border-bottom"
+                                  >/api/categories</span
+                                  >
+                              </div>
+                              <h4 class="fs-5">Request body</h4>
+                              <div class="list-group">
+                                  <div class="list-group-item">
+                                      <span class="font-monospace">nameCategory</span>
+                                      <span class="text-muted">string</span>
+                                      <span class="text-danger fw-bolder">required</span>
+                                      <p class="mt-1">The name of the category</p>
+                                  </div>
+                                  <div class="list-group-item">
+                                      <span class="font-monospace">description</span>
+                                      <span class="text-muted">string</span>
+                                      <span class="text-danger fw-bolder">required</span>
+                                      <p class="mt-1">The name of the category</p>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-7">
+                              <button
+                                      type="button"
+                                      class="btn btn-primary"
+                                      data-bs-toggle="modal"
+                                      data-bs-target="#exampleModal"
+                              >
+                                  See example
+                              </button>
+                          </div>
+                      </div>
+                  </section>
+                  <!-- End save category -->
+
+                  <!-- Update category -->
+                  <section
+                          class="mb-5 border-bottom border-secondary pb-5"
+                          id="update-category"
+                  >
+                      <h3>Update a category</h3>
+                      <div class="row">
+                          <div class="col-5">
+                              <div class="d-flex mb-3">
+                    <span
+                            class="text-center http-method rounded-start bg-warning text-white px-2 py-2"
+                    >PATCH</span
+                    >
+                                  <span
+                                          class="flex-fill bg-light px-3 py-2 rounded-end border-secondary border-top border-end border-bottom"
+                                  >/api/categories/{idCategory}</span
+                                  >
+                              </div>
+                              <h4 class="fs-5">Request body</h4>
+                              <div class="list-group">
+                                  <div class="list-group-item">
+                                      <span class="font-monospace">nameCategory</span>
+                                      <span class="text-muted">string</span>
+                                      <span class="text-danger fw-bolder">required</span>
+                                      <p class="mt-1">The name of the category</p>
+                                  </div>
+                                  <div class="list-group-item">
+                                      <span class="font-monospace">description</span>
+                                      <span class="text-muted">string</span>
+                                      <span class="text-danger fw-bolder">required</span>
+                                      <p class="mt-1">The name of the category</p>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-7">
+                              <button
+                                      type="button"
+                                      class="btn btn-primary"
+                                      data-bs-toggle="modal"
+                                      data-bs-target="#exampleModal"
+                              >
+                                  See example
+                              </button>
+                          </div>
+                      </div>
+                  </section>
+                  <!-- End Update category -->
+
+                  <!-- Delete category -->
+                  <section
+                          class="mb-5 border-bottom border-secondary pb-5"
+                          id="delete-category"
+                  >
+                      <h3>Delete a category</h3>
+                      <div class="row">
+                          <div class="col-5">
+                              <div class="d-flex mb-3">
+                    <span
+                            class="text-center http-method rounded-start bg-danger text-white px-2 py-2"
+                    >DELETE</span
+                    >
+                                  <span
+                                          class="flex-fill bg-light px-3 py-2 rounded-end border-secondary border-top border-end border-bottom"
+                                  >/api/categories/{category}</span
+                                  >
+                              </div>
+                          </div>
+                          <div class="col-7">
+                              <button
+                                      type="button"
+                                      class="btn btn-primary"
+                                      data-bs-toggle="modal"
+                                      data-bs-target="#exampleModal"
+                              >
+                                  See example
+                              </button>
+                          </div>
+                      </div>
+                  </section>
+                  <!-- End delete category -->
+
+                  <!-- Category report -->
+                  <section id="category-chart-schema" class="pt-4">
+                      <h3 class="fw-light fs-3">Category Chart Schema</h3>
+                      <table class="table">
+                          <thead>
+                          <tr>
+                              <th>Key</th>
+                              <th>Type</th>
+                              <th>Description</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr>
+                              <td>category</td>
+                              <td>string</td>
+                              <td>The Id of the category</td>
+                          </tr>
+                          <tr>
+                              <td>value</td>
+                              <td>int</td>
+                              <td>The name of the category</td>
+                          </tr>
+                          </tbody>
+                      </table>
+                  </section>
+
+                  <section
+                          class="mb-5 border-bottom border-secondary pb-5"
+                          id="category-chart"
+                  >
+                      <h3>Category Chart category</h3>
+                      <div class="row">
+                          <div class="col-5">
+                              <div class="d-flex mb-3">
+                    <span
+                            class="text-center http-method rounded-start bg-success text-white px-2 py-2"
+                    >GET</span
+                    >
+                                  <span
+                                          class="flex-fill bg-light px-3 py-2 rounded-end border-secondary border-top border-end border-bottom"
+                                  >/api/categories/category</span
+                                  >
+                              </div>
+                          </div>
+                          <div class="col-7">
+                              <button
+                                      type="button"
+                                      class="btn btn-primary"
+                                      data-bs-toggle="modal"
+                                      data-bs-target="#exampleModal"
+                              >
+                                  See example
+                              </button>
+                          </div>
+                      </div>
+                  </section>
+                  <!-- End category report -->
+              </div>
+          </div>
+      </main>
+      <!-- End main -->
+  </div>
+  <!-- End wrapper -->
+
+  <!-- Footer -->
+  <div th:replace="fragments/footer :: div"></div>
+  <!-- End footer -->
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!-- Sidebar -->
+<aside class="sidebar bg-dark text-light position-relative" th:fragment="sidebar">
+    <div class="sticky-top sidebar-sticky overflow-scroll sidebar-auto sidebar-scroll">
+        <nav class="nav-pills navbar px-3 pt-3 w-100 navbar flex-column align-items-stretch" id="sidenavbar">
+            <a th:classappend="${#httpServletRequest.getRequestURI() == '/docs' ? 'active':''}" th:href="@{/docs}" class="nav-link ps-4 mb-2"> Introduction </a>
+            <h3 class="fs-6 ps-2">API Collections</h3>
+            <!-- nav-item AUTH -->
+            <div class="nav-item">
+                <div class="btn-group w-100 mb-2">
+                    <a th:classappend="${#httpServletRequest.getRequestURI() == '/docs/auth' ? 'btn-primary':'btn-dark'}" th:href="@{/docs/auth}" class="btn w-100 text-start">Authentication</a>
+                    <button th:classappend="${#httpServletRequest.getRequestURI() == '/docs/auth' ? 'btn-primary':'btn-dark'}" class="collapse-button btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-auth" aria-expanded="false" aria-controls="collapse-auth">
+                        <i class="arrow fas fa-chevron-left"></i>
+                    </button>
+                </div>
+                <div class="collapse collapse-content" id="collapse-auth">
+                    <nav class="nav nav-pills flex-column ps-4">
+                        <a href="#signin" class="nav-link">Sign in</a>
+                        <a href="#signup" class="nav-link">Sign up</a>
+                        <a href="#reset-password" class="nav-link">Reset password</a>
+                    </nav>
+                </div>
+            </div>
+            <!-- End nav-item AUTH -->
+
+            <!-- nav-item USER -->
+            <div class="nav-item">
+                <div class="btn-group w-100 mb-2">
+                    <a th:classappend="${#httpServletRequest.getRequestURI() == '/docs/users' ? 'btn-primary':'btn-dark'}" th:href="@{/docs/users}" class="btn w-100 text-start">Users</a>
+                    <button th:classappend="${#httpServletRequest.getRequestURI() == '/docs/users' ? 'btn-primary':'btn-dark'}" class="collapse-button btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-user" aria-expanded="false" aria-controls="collapse-user">
+                        <i class="arrow fas fa-chevron-left"></i>
+                    </button>
+                </div>
+                <div class="collapse collapse-content" id="collapse-user">
+                    <nav class="nav nav-pills flex-column ps-4">
+                        <a href="#user-schema" class="nav-link">Users Schema</a>
+                        <a href="#list-users" class="nav-link">List users</a>
+                        <a href="#single-user" class="nav-link">Get a single user</a>
+                        <a href="#profile-image" class="nav-link">Profile image</a>
+                        <a href="#save-profile-image" class="nav-link">Save profile image</a>
+                        <a href="#total-users" class="nav-link">Total users</a>
+                        <a href="#profile-schema" class="nav-link">Profile Schema</a>
+                        <a href="#create-update-profile" class="nav-link">Create or update profile</a>
+                    </nav>
+                </div>
+            </div>
+            <!-- End nav-item USER -->
+
+            <!-- nav-item PRODUCTS -->
+            <div class="nav-item">
+                <div class="btn-group w-100 mb-2">
+                    <a th:classappend="${#httpServletRequest.getRequestURI() == '/docs/products' ? 'btn-primary':'btn-dark'}" th:href="@{/docs/products}" class="btn w-100 text-start">Products</a>
+                    <button th:classappend="${#httpServletRequest.getRequestURI() == '/docs/products' ? 'btn-primary':'btn-dark'}" class="collapse-button btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-products" aria-expanded="false" aria-controls="collapse-products">
+                        <i class="arrow fas fa-chevron-left"></i>
+                    </button>
+                </div>
+                <div class="collapse collapse-content" id="collapse-products">
+                    <nav class="nav nav-pills flex-column ps-4">
+                        <a href="#product-schema" class="nav-link">Products Schema</a>
+                        <a href="#list-products" class="nav-link">List products</a>
+                        <a href="#single-product" class="nav-link">Get a single products</a>
+                        <a href="#product-image" class="nav-link">Get product image by id</a>
+                        <a href="#save-product" class="nav-link">Save product</a>
+                        <a href="#save-product-image" class="nav-link">Save product image</a>
+                        <a href="#update-product" class="nav-link">Update product</a>
+                        <a href="#delete-product" class="nav-link">Delete product</a>
+                    </nav>
+                </div>
+            </div>
+            <!-- End nav-item PRODUCTS -->
+
+            <!-- nav-item CATEGORY -->
+            <div class="nav-item">
+                <div class="btn-group w-100 mb-2">
+                    <a th:classappend="${#httpServletRequest.getRequestURI() == '/docs/categories' ? 'btn-primary':'btn-dark'}" th:href="@{/docs/categories}" class="btn w-100 text-start">Categories</a>
+                    <button th:classappend="${#httpServletRequest.getRequestURI() == '/docs/categories' ? 'btn-primary':'btn-dark'}" class="collapse-button btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-category" aria-expanded="false" aria-controls="collapse-category">
+                        <i class="arrow fas fa-chevron-left"></i>
+                    </button>
+                </div>
+                <div class="collapse collapse-content" id="collapse-category">
+                    <nav class="nav nav-pills flex-column ps-4">
+                        <a href="#category-schema" class="nav-link">Category Schema</a>
+                        <a href="#list-categories" class="nav-link">List categories</a>
+                        <a href="#single-category" class="nav-link">Get a single category</a>
+                        <a href="#save-category" class="nav-link">Save category</a>
+                        <a href="#update-category" class="nav-link">Update category</a>
+                        <a href="#delete-category" class="nav-link">Delete category</a>
+                        <a href="#category-chart-schema" class="nav-link">Category chart Schema</a>
+                    </nav>
+                </div>
+            </div>
+            <!-- End nav-item CATEGORY -->
+
+            <!-- nav-item ORDER -->
+            <div class="nav-item">
+                <div class="btn-group w-100 mb-2">
+                    <a th:classappend="${#httpServletRequest.getRequestURI() == '/docs/orders' ? 'btn-primary':'btn-dark'}" th:href="@{/docs/orders}" class="btn w-100 text-start">Orders</a>
+                    <button th:classappend="${#httpServletRequest.getRequestURI() == '/docs/orders' ? 'btn-primary':'btn-dark'}" class="collapse-button btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-order" aria-expanded="false" aria-controls="collapse-order">
+                        <i class="arrow fas fa-chevron-left"></i>
+                    </button>
+                </div>
+                <div class="collapse collapse-content" id="collapse-order">
+                    <nav class="nav nav-pills flex-column ps-4">
+                        <a href="#order-schema" class="nav-link">Order Schema</a>
+                        <a href="#list-orders" class="nav-link">List orders</a>
+                        <a href="#single-order" class="nav-link">Get a single order</a>
+                        <a href="#order-by-user-id" class="nav-link">Get order by user id</a>
+                        <a href="#save-order" class="nav-link">Save order</a>
+                        <a href="#update-order-status" class="nav-link">Update order status</a>
+                        <a href="#order-per-day" class="nav-link">Order per day Schema</a>
+                        <a href="#order-report" class="nav-link">Order Report Schema</a>
+                        <a href="#order-summary" class="nav-link">Order Summary Schema</a>
+                    </nav>
+                </div>
+            </div>
+            <!-- End nav-item ORDER -->
+
+            <!-- nav-item PAYMENT -->
+            <div class="nav-item">
+                <div class="btn-group w-100 mb-2">
+                    <a th:classappend="${#httpServletRequest.getRequestURI() == '/docs/payments' ? 'btn-primary':'btn-dark'}" th:href="@{/docs/payments}" class="btn w-100 text-start">Payments</a>
+                    <button th:classappend="${#httpServletRequest.getRequestURI() == '/docs/payments' ? 'btn-primary':'btn-dark'}" class="collapse-button btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-payment" aria-expanded="false" aria-controls="collapse-payment">
+                        <i class="arrow fas fa-chevron-left"></i>
+                    </button>
+                </div>
+                <div class="collapse collapse-content" id="collapse-payment">
+                    <nav class="nav nav-pills flex-column ps-4">
+                        <a href="#payment-schema" class="nav-link">Payment Schema</a>
+                        <a href="#list-payments" class="nav-link">List payments</a>
+                        <a href="#payment-by-id" class="nav-link">Get a single payment</a>
+                        <a href="#create-payment" class="nav-link">Create payment</a>
+                        <a href="#payment-stripe" class="nav-link">Crete payment with stripe</a>
+                    </nav>
+                </div>
+            </div>
+            <!-- End nav-item PAYMENT -->
+
+            <!-- nav-item CATEGORY -->
+            <div class="nav-item">
+                <div class="btn-group w-100 mb-2">
+                    <a th:classappend="${#httpServletRequest.getRequestURI() == '/docs/payment-methods' ? 'btn-primary':'btn-dark'}" th:href="@{/docs/payment-methods}" class="btn w-100 text-start">Payment methods</a>
+                    <button th:classappend="${#httpServletRequest.getRequestURI() == '/docs/payment-methods' ? 'btn-primary':'btn-dark'}" class="collapse-button btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-method" aria-expanded="false" aria-controls="collapse-method">
+                        <i class="arrow fas fa-chevron-left"></i>
+                    </button>
+                </div>
+                <div class="collapse collapse-content" id="collapse-method">
+                    <nav class="nav nav-pills flex-column ps-4">
+                        <a href="#payment-method-schema" class="nav-link">Payment methods Schema</a>
+                        <a href="#list-payment-methods" class="nav-link">List payments methods</a>
+                        <a href="#payment-method-by-id" class="nav-link">Get a single method</a>
+                        <a href="#create-payment-method" class="nav-link">Create payment</a>
+                        <a href="#update-payment-method" class="nav-link">Update a payment method</a>
+                        <a href="#delete-payment-method" class="nav-link">Delete a payment method</a>
+                    </nav>
+                </div>
+            </div>
+            <!-- End nav-item CATEGORY -->
+
+        </nav>
+    </div>
+</aside>
+<!-- End sidebar -->

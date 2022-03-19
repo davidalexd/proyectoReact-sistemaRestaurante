@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head('Home')"></head>
+<body class="position-relative" data-bs-spy="scroll" data-bs-target="sidenavbar" data-bs-offset="62">
+
+<header th:replace="fragments/navbar :: header"></header>
+
+<!-- Wrapper -->
+<div class="wrapper d-flex">
+    <aside th:replace="fragments/sidebar :: sidebar"></aside>
+    <!-- Main -->
+    <main class="content p-4">
+        <div class="container">
+            <h2>Introduction</h2>
+            <p>To make a REST API request, you can use HTTP methods like GET, POST, PUT,DELETE, PATCH</p>
+            <p>The API URL is</p>
+            <div class="px-4 py-3 border border-secondary rounded d-inline-block bg-dark w-75">
+                <span class="text-light">http://example.com</span>
+            </div>
+        </div>
+    </main>
+    <!-- End main -->
+</div>
+<!-- End wrapper -->
+
+<!-- Footer -->
+<div th:replace="fragments/footer :: div"></div>
+<!-- End footer -->
+</body>
+</html>

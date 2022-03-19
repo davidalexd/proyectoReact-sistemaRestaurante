@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head('Orders')"></head>
+<body class="position-relative" data-bs-spy="scroll" data-bs-target="sidenavbar" data-bs-offset="62">
+
+  <header th:replace="fragments/navbar :: header"></header>
+
+  <!-- Wrapper -->
+  <div class="wrapper d-flex">
+      <aside th:replace="fragments/sidebar :: sidebar"></aside>
+      <!-- Main -->
+      <main class="content p-4">
+          <div class="container-fluid">
+              <div
+                      data-bs-spy="scroll"
+                      data-bs-target="#navbar-example3"
+                      data-bs-offset="0"
+                      tabindex="0"
+              >
+                  <h2>Orders(resource groups)</h2>
+                  <section id="order-schema" class="pt-4">
+                      <h3 class="fw-light fs-3">Order Schema</h3>
+                      <table class="table">
+                          <thead>
+                          <tr>
+                              <th>Key</th>
+                              <th>Type</th>
+                              <th>Description</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr>
+                              <td>idOrder</td>
+                              <td>int</td>
+                              <td>The Id of the order</td>
+                          </tr>
+                          <tr>
+                              <td>user</td>
+                              <td>(object)</td>
+                              <td>The user that owns the order</td>
+                          </tr>
+                          <tr>
+                              <td>payment</td>
+                              <td>array</td>
+                              <td>Details about the order payment</td>
+                          </tr>
+                          <tr>
+                              <td>orderDetails</td>
+                              <td>array</td>
+                              <td>Items that the order have</td>
+                          </tr>
+                          <tr>
+                              <td>statusOrder</td>
+                              <td>string</td>
+                              <td>The STATUS of the order</td>
+                          </tr>
+                          <tr>
+                              <td>description</td>
+                              <td>string</td>
+                              <td>The description of the order</td>
+                          </tr>
+                          <tr>
+                              <td>totalPrice</td>
+                              <td>long</td>
+                              <td>The amount of the order</td>
+                          </tr>
+                          </tbody>
+                      </table>
+                  </section>
+                  <p class="lead">
+                      Use the <i>/order</i> resource to get, create, update or
+                      delete orders
+                  </p>
+                  <!-- List orders  -->
+                  <section
+                          class="mb-5 border-bottom border-secondary pb-5"
+                          id="list-orders"
+                  >
+                      <h3>List of orders</h3>
+                      <div class="row">
+                          <div class="col-5">
+                              <div class="d-flex">
+                    <span
+                            class="text-center http-method rounded-start bg-success text-white px-2 py-2"
+                    >GET</span
+                    >
+                                  <span
+                                          class="flex-fill bg-light px-3 py-2 rounded-end border-secondary border-top border-end border-bottom"
+                                  >/api/order</span
+                                  >
+                              </div>
+                          </div>
+                          <div class="col-7">
+                              <button
+                                      type="button"
+                                      class="btn btn-primary"
+                                      data-bs-toggle="modal"
+                                      data-bs-target="#exampleModal"
+                              >
+                                  See example
+                              </button>
+                          </div>
+                      </div>
+                  </section>
+                  <!-- End List order -->
+
+                  <!-- Single order -->
+                  <section
+                          class="mb-5 border-bottom border-secondary pb-5"
+                          id="single-order"
+                  >
+                      <h3>Get a single order</h3>
+                      <div class="row">
+                          <div class="col-5">
+                              <div class="d-flex">
+                    <span
+                            class="text-center http-method rounded-start bg-success text-white px-2 py-2"
+                    >GET</span
+                    >
+                                  <span
+                                          class="flex-fill bg-light px-3 py-2 rounded-end border-secondary border-top border-end border-bottom"
+                                  >/api/order/{idOrder}</span
+                                  >
+                              </div>
+                          </div>
+                          <div class="col-7">
+                              <button
+                                      type="button"
+                                      class="btn btn-primary"
+                                      data-bs-toggle="modal"
+                                      data-bs-target="#exampleModal"
+                              >
+                                  See example
+                              </button>
+                          </div>
+                      </div>
+                  </section>
+                  <!-- End single order -->
+
+                  <!-- Order per user-->
+                  <section
+                          class="mb-5 border-bottom border-secondary pb-5"
+                          id="order-by-user-id"
+                  >
+                      <h3>Get order by user id</h3>
+                      <div class="row">
+                          <div class="col-5">
+                              <div class="d-flex">
+                    <span
+                            class="text-center http-method rounded-start bg-success text-white px-2 py-2"
+                    >GET</span
+                    >
+                                  <span
+                                          class="flex-fill bg-light px-3 py-2 rounded-end border-secondary border-top border-end border-bottom"
+                                  >/api/order/users{idUser}</span
+                                  >
+                              </div>
+                          </div>
+                          <div class="col-7">
+                              <button
+                                      type="button"
+                                      class="btn btn-primary"
+                                      data-bs-toggle="modal"
+                                      data-bs-target="#exampleModal"
+                              >
+                                  See example
+                              </button>
+                          </div>
+                      </div>
+                  </section>
+                  <!-- End order per user -->
+
+                  <!-- Save order -->
+                  <section
+                          class="mb-5 border-bottom border-secondary pb-5"
+                          id="save-order"
+                  >
+                      <h3>Save order</h3>
+                      <div class="row">
+                          <div class="col-5">
+                              <div class="d-flex mb-3">
+                    <span
+                            class="text-center http-method rounded-start bg-primary text-white px-2 py-2"
+                    >POST</span
+                    >
+                                  <span
+                                          class="flex-fill bg-light px-3 py-2 rounded-end border-secondary border-top border-end border-bottom"
+                                  >/api/order</span
+                                  >
+                              </div>
+                              <h4 class="fs-5">Request body</h4>
+                              <div class="list-group">
+                                  <div class="list-group-item">
+                                      <span class="font-monospace">iduser</span>
+                                      <span class="text-muted">int</span>
+                                      <span class="text-danger fw-bolder">required</span>
+                                      <p class="mt-1">The id of the user who owns the order</p>
+                                  </div>
+                                  <div class="list-group-item">
+                                      <span class="font-monospace">status</span>
+                                      <span class="text-muted">long</span>
+                                      <span class="text-danger fw-bolder">required</span>
+                                      <p class="mt-1">The status of the order</p>
+                                  </div>
+                                  <div class="list-group-item">
+                                      <span class="font-monospace">subtotal</span>
+                                      <span class="text-muted">long</span>
+                                      <span class="text-danger fw-bolder">required</span>
+                                      <p class="mt-1">The amount of the order</p>
+                                  </div>
+                                  <div class="list-group-item">
+                                      <span class="font-monospace">orders</span>
+                                      <span class="text-muted">array</span>
+                                      <span class="text-danger fw-bolder">required</span>
+                                      <p class="mt-1">The items of the order</p>
+                                  </div>
+                                  <div class="list-group-item">
+                                      <span class="font-monospace">create_time</span>
+                                      <span class="text-muted">string</span>
+                                      <span class="text-danger fw-bolder">required</span>
+                                      <p class="mt-1">The creation time of the order</p>
+                                  </div>
+                                  <div class="list-group-item">
+                                      <span class="font-monospace">payment_method</span>
+                                      <span class="text-muted">int</span>
+                                      <span class="text-danger fw-bolder">required</span>
+                                      <p class="mt-1">The id of the availables payment methods</p>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-7">
+                              <button
+                                      type="button"
+                                      class="btn btn-primary"
+                                      data-bs-toggle="modal"
+                                      data-bs-target="#exampleModal"
+                              >
+                                  See example
+                              </button>
+                          </div>
+                      </div>
+                  </section>
+                  <!-- End save order -->
+
+                  <!-- Update order status-->
+                  <section
+                          class="mb-5 border-bottom border-secondary pb-5"
+                          id="update-order-status"
+                  >
+                      <h3>Update order status</h3>
+                      <div class="row">
+                          <div class="col-5">
+                              <div class="d-flex mb-3">
+                    <span
+                            class="text-center http-method rounded-start bg-warning text-white px-2 py-2"
+                    >PATCH</span
+                    >
+                                  <span
+                                          class="flex-fill bg-light px-3 py-2 rounded-end border-secondary border-top border-end border-bottom"
+                                  >/api/order/{idOrder}/status</span
+                                  >
+                              </div>
+                              <h4 class="fs-5">Request body</h4>
+                              <div class="list-group">
+                                  <div class="list-group-item">
+                                      <span class="font-monospace">status</span>
+                                      <span class="text-muted">string</span>
+                                      <span class="text-danger fw-bolder">required</span>
+                                      <p class="mt-1">The new status order</p>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-7">
+                              <button
+                                      type="button"
+                                      class="btn btn-primary"
+                                      data-bs-toggle="modal"
+                                      data-bs-target="#exampleModal"
+                              >
+                                  See example
+                              </button>
+                          </div>
+                      </div>
+                  </section>
+                  <!-- End Update order status -->
+
+                  <!-- Orders per day -->
+                  <section id="order-per-day" class="pt-4">
+                      <h3 class="fw-light fs-3">Order per Day Schema</h3>
+                      <table class="table">
+                          <thead>
+                          <tr>
+                              <th>Key</th>
+                              <th>Type</th>
+                              <th>Description</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr>
+                              <td>product</td>
+                              <td>(object)</td>
+                              <td>Product</td>
+                          </tr>
+                          <tr>
+                              <td>total</td>
+                              <td>int</td>
+                              <td>The total of most ordered</td>
+                          </tr>
+                          </tbody>
+                      </table>
+                  </section>
+                  <section
+                          class="mb-5 border-bottom border-secondary pb-5"
+                          id="order-report"
+                  >
+                      <div class="row">
+                          <div class="col-5">
+                              <div class="d-flex mb-3">
+                    <span
+                            class="text-center http-method rounded-start bg-success text-white px-2 py-2"
+                    >GET</span
+                    >
+                                  <span
+                                          class="flex-fill bg-light px-3 py-2 rounded-end border-secondary border-top border-end border-bottom"
+                                  >/api/order/mostOrdered</span
+                                  >
+                              </div>
+                          </div>
+                          <div class="col-7">
+                              <button
+                                      type="button"
+                                      class="btn btn-primary"
+                                      data-bs-toggle="modal"
+                                      data-bs-target="#exampleModal"
+                              >
+                                  See example
+                              </button>
+                          </div>
+                      </div>
+                  </section>
+                  <!-- End orders per day -->
+
+                  <!-- order report -->
+                  <section id="order-summary" class="pt-4">
+                      <h3 class="fw-light fs-3">Order Report Schema</h3>
+                      <table class="table">
+                          <thead>
+                          <tr>
+                              <th>Key</th>
+                              <th>Type</th>
+                              <th>Description</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr>
+                              <td>user</td>
+                              <td>(object)</td>
+                              <td>The user who owns the order</td>
+                          </tr>
+                          <tr>
+                              <td>address</td>
+                              <td>string</td>
+                              <td>The address where the order will be delivered</td>
+                          </tr>
+                          <tr>
+                              <td>total</td>
+                              <td>long</td>
+                              <td>The amoundo the order</td>
+                          </tr>
+                          <tr>
+                              <td>status</td>
+                              <td>string</td>
+                              <td>The current status of the order</td>
+                          </tr>
+                          </tbody>
+                      </table>
+                  </section>
+                  <section
+                          class="mb-5 border-bottom border-secondary pb-5"
+                          id="update-category"
+                  >
+                      <div class="row">
+                          <div class="col-5">
+                              <div class="d-flex mb-3">
+                    <span
+                            class="text-center http-method rounded-start bg-success text-white px-2 py-2"
+                    >GET</span
+                    >
+                                  <span
+                                          class="flex-fill bg-light px-3 py-2 rounded-end border-secondary border-top border-end border-bottom"
+                                  >/api/order/orderReport</span
+                                  >
+                              </div>
+                          </div>
+                          <div class="col-7">
+                              <button
+                                      type="button"
+                                      class="btn btn-primary"
+                                      data-bs-toggle="modal"
+                                      data-bs-target="#exampleModal"
+                              >
+                                  See example
+                              </button>
+                          </div>
+                      </div>
+                  </section>
+                  <!-- End order report -->
+
+                  <!-- Order summary -->
+                  <section id="summary-schema" class="pt-4">
+                      <h3 class="fw-light fs-3">Orders Summary Schema</h3>
+                      <table class="table">
+                          <thead>
+                          <tr>
+                              <th>Key</th>
+                              <th>Type</th>
+                              <th>Description</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr>
+                              <td>current</td>
+                              <td>long</td>
+                              <td>The current value</td>
+                          </tr>
+                          <tr>
+                              <td>last</td>
+                              <td>long</td>
+                              <td>The last value </td>
+                          </tr>
+                          <tr>
+                              <td>type</td>
+                              <td>string</td>
+                              <td>The type of the summary</td>
+                          </tr>
+                          <tr>
+                              <td>percentage</td>
+                              <td>double</td>
+                              <td>The percentage of the summary</td>
+                          </tr>
+                          <tr>
+                              <td>status</td>
+                              <td>string</td>
+                              <td>The status of the summary</td>
+                          </tr>
+                          </tbody>
+                      </table>
+                  </section>
+                  <section
+                          class="mb-5 border-bottom border-secondary pb-5"
+                          id="update-order"
+                  >
+                      <div class="row">
+                          <div class="col-5">
+                              <div class="d-flex mb-3">
+                    <span
+                            class="text-center http-method rounded-start bg-success text-white px-2 py-2"
+                    >GET</span
+                    >
+                                  <span
+                                          class="flex-fill bg-light px-3 py-2 rounded-end border-secondary border-top border-end border-bottom"
+                                  >/api/order/summary</span
+                                  >
+                              </div>
+                          </div>
+                          <div class="col-7">
+                              <button
+                                      type="button"
+                                      class="btn btn-primary"
+                                      data-bs-toggle="modal"
+                                      data-bs-target="#exampleModal"
+                              >
+                                  See example
+                              </button>
+                          </div>
+                      </div>
+                  </section>
+                  <!-- End order summary -->
+              </div>
+          </div>
+      </main>
+      <!-- End main -->
+  </div>
+  <!-- End wrapper -->
+
+  <!-- Footer -->
+  <div th:replace="fragments/footer :: div"></div>
+  <!-- End footer -->
+</body>
+</html>

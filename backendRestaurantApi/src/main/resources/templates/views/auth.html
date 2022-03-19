@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head('Auth')"></head>
+<body class="position-relative" data-bs-spy="scroll" data-bs-target="sidenavbar" data-bs-offset="62">
+
+  <header th:replace="fragments/navbar :: header"></header>
+
+  <!-- Wrapper -->
+  <div class="wrapper d-flex">
+      <aside th:replace="fragments/sidebar :: sidebar"></aside>
+
+      <!-- Main -->
+      <main class="content p-4">
+          <div class="container-fluid">
+              <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-offset="0" tabindex="0">
+                  <h2>Auth(resource groups)</h2>
+                  <p class="lead">Use the <i>/api/auth</i> resource to signin, register or reset password</p>
+
+                  <!-- Signin  -->
+                  <section class="mb-5 border-bottom border-secondary pb-5" id="signin">
+                      <div class="mb-5 border-top-3 border-dark pt-1">
+                          <h3 class="fw-light fs-3">Sign in Schema</h3>
+                          <table class="table">
+                              <thead>
+                              <tr>
+                                  <th>Key</th>
+                                  <th>Type</th>
+                                  <th>Description</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              <tr>
+                                  <td>username</td>
+                                  <td>string</td>
+                                  <td>The username to signin</td>
+                              </tr>
+                              <tr>
+                                  <td>password</td>
+                                  <td>string</td>
+                                  <td>The password to signin</td>
+                              </tr>
+                              </tbody>
+                          </table>
+                      </div>
+                      <div class="row">
+                          <div class="col-5">
+                              <div class="d-flex mb-3">
+                                    <span
+                                            class="text-center http-method rounded-start bg-primary text-white px-2 py-2">POST</span>
+                                  <span
+                                          class="flex-fill bg-light px-3 py-2 rounded-end border-secondary border-top border-end border-bottom ">/api/auth/signin</span>
+                              </div>
+                              <h4 class="fs-5">Request body</h4>
+                              <div class="list-group">
+                                  <div class="list-group-item">
+                                      <span class="font-monospace">username</span> <span
+                                          class="text-muted">string</span>
+                                      <span class="text-danger fw-bolder">required</span></span>
+                                      <p class="mt-1">The username to signup</p>
+                                  </div>
+                                  <div class="list-group-item">
+                                      <span class="font-monospace">password</span> <span
+                                          class="text-muted">string</span>
+                                      <span class="text-danger fw-bolder">required</span></span>
+                                      <p class="mt-1">The password to signup</p>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-7">
+                              <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                      data-bs-target="#exampleModal">
+                                  See example
+                              </button>
+                          </div>
+                      </div>
+
+                  </section>
+                  <!-- End signin -->
+
+                  <!-- Register -->
+                  <section class="mb-5 border-bottom border-secondary pb-5" id="signup">
+                      <div class="mb-5 border-top-3 border-dark pt-1">
+                          <h3 class="fw-light fs-3">Signup Schema</h3>
+                          <table class="table">
+                              <thead>
+                              <tr>
+                                  <th>Key</th>
+                                  <th>Type</th>
+                                  <th>Description</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                              <tr>
+                                  <td>username</td>
+                                  <td>string</td>
+                                  <td>The username to register</td>
+                              </tr>
+                              <tr>
+                                  <td>email</td>
+                                  <td>string</td>
+                                  <td>The password to register</td>
+                              </tr>
+                              <tr>
+                                  <td>roles</td>
+                                  <td>array</td>
+                                  <td>An array of roles, can be <span class="text-muted">admin, mod or
+                                                empty(default user)</span> </td>
+                              </tr>
+                              <tr>
+                                  <td>password</td>
+                                  <td>string</td>
+                                  <td>The password to signin</td>
+                              </tr>
+                              </tbody>
+                          </table>
+                      </div>
+                      <div class="row">
+                          <div class="col-5">
+                              <div class="d-flex mb-3">
+                                    <span
+                                            class="text-center http-method  rounded-start bg-primary text-white px-2 py-2">POST</span>
+                                  <span
+                                          class="flex-fill bg-light px-3 py-2 rounded-end border-secondary border-top border-end border-bottom ">/api/auth/signup</span>
+                              </div>
+                              <h4 class="fs-5">Request body</h4>
+                              <div class="list-group">
+                                  <div class="list-group-item">
+                                      <span class="font-monospace">username</span> <span
+                                          class="text-muted">string</span>
+                                      <span class="text-danger fw-bolder">required</span>
+                                      <p class="mt-1">The username to signup</p>
+                                  </div>
+                                  <div class="list-group-item">
+                                      <span class="font-monospace">email</span> <span class="text-muted">string</span>
+                                      <span class="text-danger fw-bolder">required</span>
+                                      <p class="mt-1">The password to signup</p>
+                                  </div>
+                                  <div class="list-group-item">
+                                      <span class="font-monospace">roles</span>
+                                      <span class="text-muted">array</span>
+                                      <span class="text-danger fw-bolder">required</span>
+                                      <p class="mt-1">
+                                          The posible values are:
+                                          <br>
+                                      <ul class="ps-5">
+                                          <li class="pb-0">
+                                              <span class="font-monospace fst-italic">admin</span>
+                                              <p>The role admin can administrate an add moderator</p>
+                                          </li>
+                                          <li>
+                                              <span class="font-monospace fst-italic">mod</span>
+                                              <p>The role mod can administrate</p>
+                                          </li>
+                                          <li>
+                                              <span class="font-monospace fst-italic">empty or default</span>
+                                              <p>The default role is user</p>
+                                          </li>
+                                      </ul>
+                                      </p>
+                                  </div>
+                                  <div class="list-group-item">
+                                      <span class="font-monospace">password</span>
+                                      <span class="text-muted">string</span>
+                                      <span class="text-danger fw-bolder">required</span>
+                                      <p class="mt-1">The password to signup</p>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-7">
+                              <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                      data-bs-target="#exampleModal">
+                                  See example
+                              </button>
+                          </div>
+                      </div>
+                  </section>
+                  <!-- End register -->
+
+                  <!-- Reset password -->
+                  <section class="mb-5 border-bottom border-secondary pb-5" id="reset-password">
+                      <h3>Reset Password</h3>
+                      <div class="row">
+                          <div class="col-5">
+                              <div class="d-flex mb-3">
+                                    <span
+                                            class="text-center http-method  rounded-start bg-primary text-white px-2 py-2">POST</span>
+                                  <span
+                                          class="flex-fill bg-light px-3 py-2 rounded-end border-secondary border-top border-end border-bottom ">/api/auth/{id}/password</span>
+                              </div>
+                              <h4 class="fs-5">Request body</h4>
+                              <div class="list-group">
+                                  <div class="list-group-item">
+                                      <span class="font-monospace">oldPassword</span>
+                                      <span class="newPassword">string</span>
+                                      <span class="text-danger fw-bolder">required</span>
+                                      <p class="mt-1">The old password</p>
+                                  </div>
+                                  <div class="list-group-item">
+                                      <span class="font-monospace">password</span>
+                                      <span class="text-muted">string</span>
+                                      <span class="text-danger fw-bolder">required</span>
+                                      <p class="mt-1">The new password</p>
+                                  </div>
+                                  <div class="list-group-item">
+                                      <span class="font-monospace">passwordConfirmation</span>
+                                      <span class="text-muted">string</span>
+                                      <span class="text-danger fw-bolder">required</span>
+                                      <p class="mt-1">The password confirmation</p>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-7">
+                              <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                                      data-bs-target="#exampleModal">
+                                  See example
+                              </button>
+                          </div>
+                      </div>
+                  </section>
+                  <!-- End reset-password -->
+
+              </div>
+          </div>
+      </main>
+      <!-- End main -->
+  </div>
+  <!-- End wrapper -->
+
+  <!-- Footer -->
+  <div th:replace="fragments/footer :: div"></div>
+  <!-- End footer -->
+</body>
+</html>

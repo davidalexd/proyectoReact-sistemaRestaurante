@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/head :: head('Payments')"></head>
+<body class="position-relative" data-bs-spy="scroll" data-bs-target="sidenavbar" data-bs-offset="62">
+
+  <header th:replace="fragments/navbar :: header"></header>
+
+  <!-- Wrapper -->
+  <div class="wrapper d-flex">
+      <aside th:replace="fragments/sidebar :: sidebar"></aside>
+      <!-- Main -->
+      <main class="content p-4">
+          <div class="container-fluid">
+              <div
+                      data-bs-spy="scroll"
+                      data-bs-target="#navbar-example3"
+                      data-bs-offset="0"
+                      tabindex="0"
+              >
+                  <h2>Payments(resource groups)</h2>
+                  <section id="payment-schema" class="pt-4">
+                      <h3 class="fw-light fs-3">Payment Schema</h3>
+                      <table class="table">
+                          <thead>
+                          <tr>
+                              <th>Key</th>
+                              <th>Type</th>
+                              <th>Description</th>
+                          </tr>
+                          </thead>
+                          <tbody>
+                          <tr>
+                              <td>idPayment</td>
+                              <td>int</td>
+                              <td>The Id of the payment</td>
+                          </tr>
+                          <tr>
+                              <td>paymentMethod</td>
+                              <td>(object)</td>
+                              <td>The payment method</td>
+                          </tr>
+                          <tr>
+                              <td>statusPayment</td>
+                              <td>bool</td>
+                              <td>Check the status of the payment</td>
+                          </tr>
+                          </tbody>
+                      </table>
+                  </section>
+                  <p class="lead">
+                      Use the <i>/payments</i> resource to get, create or update payment
+                  </p>
+                  <!-- List payments  -->
+                  <section
+                          class="mb-5 border-bottom border-secondary pb-5"
+                          id="list-payments"
+                  >
+                      <h3>List of payments</h3>
+                      <div class="row">
+                          <div class="col-5">
+                              <div class="d-flex">
+                    <span
+                            class="text-center http-method rounded-start bg-success text-white px-2 py-2"
+                    >GET</span
+                    >
+                                  <span
+                                          class="flex-fill bg-light px-3 py-2 rounded-end border-secondary border-top border-end border-bottom"
+                                  >/api/payments</span
+                                  >
+                              </div>
+                          </div>
+                          <div class="col-7">
+                              <button
+                                      type="button"
+                                      class="btn btn-primary"
+                                      data-bs-toggle="modal"
+                                      data-bs-target="#exampleModal"
+                              >
+                                  See example
+                              </button>
+                          </div>
+                      </div>
+                  </section>
+                  <!-- End List payments -->
+
+                  <!-- Single payment -->
+                  <section
+                          class="mb-5 border-bottom border-secondary pb-5"
+                          id="payment-by-id"
+                  >
+                      <h3>Get a single payment</h3>
+                      <div class="row">
+                          <div class="col-5">
+                              <div class="d-flex">
+                    <span
+                            class="text-center http-method rounded-start bg-success text-white px-2 py-2"
+                    >GET</span
+                    >
+                                  <span
+                                          class="flex-fill bg-light px-3 py-2 rounded-end border-secondary border-top border-end border-bottom"
+                                  >/api/payments/{idPayment}</span
+                                  >
+                              </div>
+                          </div>
+                          <div class="col-7">
+                              <button
+                                      type="button"
+                                      class="btn btn-primary"
+                                      data-bs-toggle="modal"
+                                      data-bs-target="#exampleModal"
+                              >
+                                  See example
+                              </button>
+                          </div>
+                      </div>
+                  </section>
+                  <!-- End single payment -->
+
+                  <!-- Create payment -->
+                  <section
+                          class="mb-5 border-bottom border-secondary pb-5"
+                          id="create-payment"
+                  >
+                      <h3>Create payment</h3>
+                      <div class="row">
+                          <div class="col-5">
+                              <div class="d-flex mb-3">
+                    <span
+                            class="text-center http-method rounded-start bg-primary text-white px-2 py-2"
+                    >POST</span
+                    >
+                                  <span
+                                          class="flex-fill bg-light px-3 py-2 rounded-end border-secondary border-top border-end border-bottom"
+                                  >/api/payments</span
+                                  >
+                              </div>
+                              <h4 class="fs-5">Request body</h4>
+                              <div class="list-group">
+                                  <div class="list-group-item">
+                                      <span class="font-monospace">orderUser</span>
+                                      <span class="text-muted">(object)</span>
+                                      <span class="text-danger fw-bolder">required</span>
+                                      <p class="mt-1">An available payment method</p>
+                                  </div>
+                                  <div class="list-group-item">
+                                      <span class="font-monospace">statusPayment</span>
+                                      <span class="text-muted">bool</span>
+                                      <span class="text-danger fw-bolder">required</span>
+                                      <p class="mt-1">The status of the payment</p>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-7">
+                              <button
+                                      type="button"
+                                      class="btn btn-primary"
+                                      data-bs-toggle="modal"
+                                      data-bs-target="#exampleModal"
+                              >
+                                  See example
+                              </button>
+                          </div>
+                      </div>
+                  </section>
+                  <!-- End create payment -->
+
+                  <!-- Create payment Stripe -->
+                  <section
+                          class="mb-5 border-bottom border-secondary pb-5"
+                          id="payment-stripe"
+                  >
+                      <h3>Create payment with stripe</h3>
+                      <div class="row">
+                          <div class="col-5">
+                              <div class="d-flex mb-3">
+                    <span
+                            class="text-center http-method rounded-start bg-primary text-white px-2 py-2"
+                    >POST</span
+                    >
+                                  <span
+                                          class="flex-fill bg-light px-3 py-2 rounded-end border-secondary border-top border-end border-bottom"
+                                  >/api/payments/stripe</span
+                                  >
+                              </div>
+                              <h4 class="fs-5">Request body</h4>
+                              <div class="list-group">
+                                  <div class="list-group-item">
+                                      <span class="font-monospace">paymentId</span>
+                                      <span class="text-muted">int</span>
+                                      <span class="text-danger fw-bolder">required</span>
+                                      <p class="mt-1">The id of the payment</p>
+                                  </div>
+                                  <div class="list-group-item">
+                                      <span class="font-monospace">amount</span>
+                                      <span class="text-muted">long</span>
+                                      <span class="text-danger fw-bolder">required</span>
+                                      <p class="mt-1">The amount of the payment</p>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="col-7">
+                              <button
+                                      type="button"
+                                      class="btn btn-primary"
+                                      data-bs-toggle="modal"
+                                      data-bs-target="#exampleModal"
+                              >
+                                  See example
+                              </button>
+                          </div>
+                      </div>
+                  </section>
+                  <!-- End create payment stripe -->
+              </div>
+          </div>
+      </main>
+      <!-- End main -->
+  </div>
+  <!-- End wrapper -->
+
+  <!-- Footer -->
+  <div th:replace="fragments/footer :: div"></div>
+  <!-- End footer -->
+</body>
+</html>
