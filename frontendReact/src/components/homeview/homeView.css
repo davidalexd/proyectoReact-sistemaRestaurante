@@ -1,0 +1,332 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Satisfy&display=swap');
+/* home section */
+.min-vh-100{
+  min-height: 100vh;
+}
+.home-section{
+  position: relative;
+  overflow: hidden;
+  margin-left: 80px;
+
+}
+.contenedor{
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+}
+.home-section::before{
+  content: '';
+  position:absolute;
+  left: 0;
+  top:0;
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  opacity: 0.7;
+  z-index: -1
+}
+.home-section .min-vh-100{
+  padding: 100px 0;
+}
+.home-text{
+  padding: 0 15px 30px;
+  max-width:  700px;
+  width: 100%;
+  margin:auto;
+  text-align: center;
+  color: #fff;
+ 
+}
+h1{
+  font-weight: 700;
+  color:  #fff;
+}
+.home-section .home-bg{
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-image: url('../../assets/images/delicius.jpg');
+  background-attachment:fixed;
+  background-size: cover;
+  background-position: center;
+  z-index: -2;
+  animation: zoomInOut 20s ease infinite;
+
+}
+.home-text h1{
+  font-size: 60px;
+  line-height: 75px;
+  margin:0 0 5px;
+  font-family: 'Satisfy';
+
+}
+
+.boton{
+    display: inline-block;
+    padding: 10px 30px;
+    border-radius: 30px;
+    text-transform: capitalize;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    font-size:  16px;
+    cursor: pointer;
+    font-family:  inherit;
+    color:#EA7C69;
+    line-height: 1.5;
+    user-select: none;
+    border:none;
+}
+.boton-default{
+    border:2px solid #EA7C69;
+}
+.boton-default:hover{
+    color: white;
+    background-color: #EA7C69;
+
+}
+.home-text p{
+  margin: 0 0 30px;
+  
+}
+@keyframes zoomInOut{
+  0%,100%{
+      -o-transform: scale(1);
+  }
+  50%{
+      transform: scale(1.1);
+  }
+}
+
+/* busqueda */
+input.src{
+  padding: 9px 10px 9px 32px;
+  outline: none;
+  font-size: 18px;
+  border-radius: 1.5rem;
+  color: #fff;
+  border: 1px solid   #393C49;
+  background: #2D303E url(../../assets/images/search-icon.png) no-repeat 9px center;
+  width: 100px;
+  transition:all .5s;
+}
+input.src:hover{
+  width: 280px;
+  background-color: #2D303E;
+  border-color: #393C49;
+  box-shadow: 0 0 5px #fcfcfc80;
+
+}
+.homeview-header {
+  padding-top: 40px;
+  width: 100%;
+  height: 450px;
+  border-radius: 10px;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, hsla(249, 33%, 17%, 0.459), hsla(229, 31%, 21%, 0.664)), url(../../assets/images/delicius.jpg);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, hsla(249, 33%, 17%, 0.459), hsla(229, 31%, 21%, 0.664)), url(../../assets/images/delicius.jpg);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+/*estilos categorias*/
+.categorias{
+  background: #252836;
+}
+
+.contenedor2{
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+    padding: 60px 0;
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    overflow: hidden;
+}
+.section-title {
+  color: #fff;
+  font-size: 30px;
+  text-align: center;
+  margin-bottom: 60px;
+}
+.section-title h2{
+  font-size: 35px;
+  text-transform: capitalize;
+}
+.section-title h2::before{
+  content: attr(data-title);
+  display: block;
+  font-size: 24px;
+  color: #EA7C69;
+  font-family: 'Satisfy';
+}
+.galeria-port{
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.imagen-port{
+  width: 24%;
+  min-width: 240px;
+  margin-bottom: 10px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, .5);
+}
+
+.imagen-port > img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hover-galeria{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  transform: scale(0);
+  background: rgba(234, 124, 105, 0.76);
+  transition: transform .5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.hover-galeria p{
+  color: #fff;
+}
+
+.imagen-port:hover .hover-galeria{
+  transform: scale(1);
+}
+
+/* productos  */
+.productos{
+  background: #252836;
+}
+
+.contenedor3{
+  padding: 60px 0;
+  width: 90%;
+  max-width: 1000px;
+  margin: auto;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+
+}
+.cards{
+  margin-top: 8rem;
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.cards .card{
+  background: #1F1D2B;
+  display: flex;
+  min-width: 300px;
+  width: 46%;
+  height: 218px;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 5px;
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.6);
+  margin-bottom: 25px;
+}
+
+.cards .card img{
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  display: block;
+}
+
+.cards .card > .contenido-texto-card{
+  width: 60%;
+  color: #fff;
+}
+
+.cards .card > .contenido-texto-card p{
+  font-weight: 300;
+  padding-top: 5px;
+}
+
+/* footer  */
+footer{
+  font-family: 'Poppins', sans-serif;
+  background: #1F1D2B;
+  padding: 60px 0 30px 0;
+  margin: auto;
+  overflow: hidden;
+}
+
+.contenedor-footer{
+  display: flex;
+  width: 90%;
+  justify-content: space-evenly;
+  margin: auto;
+  padding-bottom: 50px;
+  border-bottom: 0.25rem solid #ea8e69;
+}
+
+.content-foo{
+  text-align: center;
+}
+
+.content-foo h4{
+  color: #fff;
+  font-size: 15px;
+  border-bottom: 0.23rem solid #EA7C69;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
+}
+
+.content-foo p{
+  color: #ccc;
+  font-size: 15px;
+}
+
+.titulo-final{
+  text-align: center;
+  font-size: 24px;
+  margin: 20px 0 0 0;
+  color: #9e9797;
+} 
+
+
+
+
+
+
+/* cartas estilos*/
+.product-card {
+  box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
+  cursor: default;
+  transition: all 400ms ease;
+}
+.product-card:hover{
+  box-shadow: 5px 5px 20px rgba(0,0,0,0.2);
+  transform: translateY(-8%);
+
+}
+
+
+@media (max-width: 768px){
+  .home-section{
+    margin-left: 0;
+  }
+  .contenedor-footer{
+    flex-direction: column;
+    width: 62%;
+  }
+}

@@ -1,0 +1,42 @@
+.progressInfo{
+    margin-top: 25px;
+    margin-bottom: 5rem;
+}
+.nav-steps{
+    display: flex;
+    justify-content: center;
+}
+.nav-step{
+    position: relative;
+    float: left;
+    width: 25%;
+    padding-top: 5px;
+    text-align: center;
+
+}
+
+.nav-step::before{
+    content: " ";
+    position: absolute;
+    top: 100px;
+    left: 67%;
+    width: calc(50% + 90px);
+    border-top: 4px dashed #1688ee;
+}
+.step-info {
+    font-size: 18px;
+    color: #fff;
+}
+.end.nav-step::before{
+display: none;
+}
+
+.segui-header{
+    color: #fff;
+    font-size: 1.1rem;
+    padding-top:1.5rem;
+}
+.segui-title.border-c{
+    border-bottom: 3px solid #393C49;
+    padding-bottom: 1.1rem;
+}

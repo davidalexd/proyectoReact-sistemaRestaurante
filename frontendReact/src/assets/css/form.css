@@ -1,0 +1,96 @@
+.content-form{
+    background-color: var(--base-dark-primary);
+    border-radius: 8px;
+    padding: 2rem;
+    position: relative;
+
+}
+.content-form .form-logo{
+    margin: 0 auto;
+    margin-bottom: 3rem;
+    width: 80%;
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+}
+.half-form{
+    display: flex;
+    justify-content: space-between;
+}
+.half-form > div{
+    width: 48%;
+}
+.form-group label{
+    color: var(--text-white);
+    font-size: 1.4rem;
+    font-weight: var(--text-medium);
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+}
+.form-group .input{
+    padding: 1rem .5rem;
+    width: 100%;
+}
+.input-container i{
+    font-size: 1.8rem;
+}
+.background{
+    position: absolute;
+    /* lo agrege para navegar mejor desde el sidebar  */
+    margin-left: 80px;
+    width: 100%;
+    height: 100%;
+    filter: blur(12px);
+}
+.button-separator{
+    color: var(--text-light);
+    font-size: 1.8rem;
+    text-align: center;
+    width: 100%;
+    display: block;
+    position: relative;
+    margin: 1rem 0
+}
+.button-separator span{
+    position: relative;
+    background-color:var(--base-dark-primary);
+    z-index: 5;
+    padding: 0 2rem;
+}
+.button-separator::after{
+    position:absolute;
+    z-index: 0;
+    left: 0;
+    top: 50%;
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: var(--text-light);
+}
+.select-form{
+    padding: .6rem 1rem;
+    border-radius: 1rem;
+    width: 100%;
+    background-color: var(--form-color);
+    color: var(--text-light);
+    margin-bottom: 2rem;
+}
+.select-form option{
+    background-color: var(--form-color);
+    padding: 1rem;
+    color: #fff;
+}
+.file-content{
+    margin-bottom: 2rem;
+    background-color: var(--blue-color);
+    width: 40%;
+    padding: 1rem;
+    text-align: center;
+    border-radius: .6rem;
+}
+#file{
+    display: none;
+}

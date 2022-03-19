@@ -1,0 +1,87 @@
+.noti-container{
+    padding: 3rem;
+    overflow-x: scroll;
+}
+.noti-title{
+    color: var(--text-white);
+    font-weight: var(--text-semi-bold);
+    font-size: 2rem;
+    padding-bottom: 1rem;
+}
+.noti-title.border-b{
+    border-bottom: 3px solid var(--form-border);
+}
+
+.status{
+    padding: 4px 12px;
+    border-radius: 3rem;
+}
+.completed .btn-product{
+    background-color: var(--background-extra-green);
+    color: var(--green-color)!important;
+}
+.completed .product-image i{
+    color: var(--green-color)!important;
+}
+.preparing .btn-product{
+    color: var(--orange-color);
+    background-color: var(--background-extra-orange)!important;
+}
+.preparing .product-image i{
+    color: var(--purple-color)!important;
+}
+.pending .btn-product{
+    background-color: var(--background-extra-purple);
+    color: var(--purple-color)!important;
+}
+
+.delivering .btn-product{
+    background-color: var(--background-extra-lightblue);
+    color: var(--blue-color)!important;
+}
+.noti-container .product-image img{
+    border-radius: unset!important;
+    margin-bottom:1rem;
+}
+.product-title{
+    color: var(--text-white);
+    margin-bottom: 1rem;
+    
+}
+.card-image img{
+    border-radius: 50rem;
+    width: 10rem;
+}
+.table{
+    display: table;
+    width: 100%;
+    border-spacing: 0;
+    color: var(--text-white);
+    background-color: var(--form-color);
+}
+.table thead{
+    border-radius: 1rem;
+    background-color:var(--primary-color);
+    color: var(--text-white);
+    height:4rem;
+    font-size: 2rem;
+    
+}
+.table thead td{
+    padding: 1rem 0 1rem 2rem;
+}
+.table tbody td{
+    padding: 1rem 0 1rem 2rem;
+    color: var(--text-white);
+    font-size: 1.4rem;
+}
+.table tbody tr{
+    border-bottom: 1px var(--form-border) solid;
+}
+.product-cell{
+    display: flex;
+    align-items: center;   
+}
+.product-cell img{
+    margin-right: 2rem;
+}

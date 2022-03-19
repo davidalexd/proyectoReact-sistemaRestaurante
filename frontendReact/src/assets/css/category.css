@@ -1,0 +1,53 @@
+
+.table-container .title{
+    color: var(--text-white);
+    font-size: 3rem;
+}
+.edit-role{
+    font-size: 3rem;
+}
+.table-content{
+    border-collapse: collapse;
+    background-color: var(--form-color);
+    color: var(--text-white);
+    border-radius: .4rem;
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.4rem;
+}
+.table-content .thead{
+    font-family: var(--text-semi-bold);
+    background-color: var(--text-dark);
+}
+.table-content .thead:nth-child(1n){
+    background-color: var(--purple-color);
+}
+.table-content .tbody{
+    font-family: var(--text-medium);
+    max-height: 60vh;
+    overflow-y: scroll;
+    display: block;
+}
+.thead, .tbody tr{
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+.table-content td,.table-content th{
+    padding: 1.8rem 1rem;
+}
+.table-buttons{
+    font-size: 2rem;
+}
+.table-btn-edit{
+    color: var(--blue-color);
+    margin-right: 1rem;
+    cursor: pointer;
+}
+.table-btn-delete{
+    color: var(--red-color);
+    cursor:pointer;
+}
+.table.select-form{
+    margin-bottom: 0;
+}

@@ -1,0 +1,79 @@
+.profile-content{
+    max-width: 80rem;
+    margin: 0 auto;
+}
+.profile-header{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+.profile-image-container{
+    position: relative;
+    width:20rem;
+    height:20rem;
+    margin-right: 1rem;
+}
+.profile-image-container img{
+    width:20rem;
+    height:20rem;
+    object-fit: cover;
+    border-radius: 50rem;
+}
+.profile-summary{
+    font-size:1.5rem;
+}
+.profile-summary-list{
+    display: flex;
+}
+.profile-summary-item{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    margin-right: 1rem;
+}
+.summary-value{
+    font-size: 1.8em;
+}
+.summary-display{
+    color: var(--text-light);
+}
+.profile-details{
+    max-width: 80%;
+    margin: 0 auto;
+    font-size: 2rem;
+}
+.profile-item{
+    display: flex;
+}
+.profile-item .profile-icon{
+    background-color: var(--base-dark-primary);
+    border-radius: 10rem;
+    width: 5rem;
+    height: 5rem;
+    margin-right: 1rem;
+}
+.profile-detail{
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--text-light);
+    flex: 1;
+}
+.profile-item .profile-value{
+    color : var(--text-light);
+}
+.edit{
+    width: 5rem;
+    height:5rem;
+    position: absolute;
+    bottom: 0rem;
+    right: 0;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+}
+.edit svg{
+    width:3.5rem;
+    height: 3.5rem;
+}
+.edit svg path{
+    fill: var(--text-white);
+}

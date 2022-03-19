@@ -1,0 +1,116 @@
+.invoicing-container{
+    width: 75rem;
+    height: 100%;
+    margin: 0 auto;
+    overflow-x: hidden;
+}
+.btn-toggle{
+    position: relative;
+    z-index: 5;
+}
+.invoicing-content{
+    
+    background-color: black;
+    margin-top: 2rem;
+    overflow: hidden;
+    color: var(--text-white);
+}
+.header-info.invoicing{
+    position: relative;
+}
+.company-info{
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color:var(--form-color);
+    flex: 1;
+    backface-visibility : hidden;
+    padding:4rem 10rem;
+    margin: 0 0rem 2rem -6rem;
+    width: 64%;
+    height:14rem;
+    clip-path: polygon(0 0, 100% 0, 80% 100%, 0 100%);
+}
+.invoicing-center{
+    width:80%;
+    margin: 20rem auto;
+}
+.invoicing-info{
+    width: 64%;
+    position: absolute;
+    right: 0;
+    height:14rem;
+    padding: 2rem 8rem;
+    backface-visibility : hidden;
+    flex: 1;
+    margin: 2rem -6rem  0 0rem;
+    background-color:var(--primary-color);
+    clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);
+}
+.invoicing-detail h3{
+    font-size:4rem;
+}
+.invoicing-info-details{
+    width:100%;
+}
+.invoicing-info-detail-item > span{
+    display: inline-block;
+    width:30%;
+}
+.header-description{
+    display: flex;
+    justify-content:space-between;
+    margin: 2rem 0;
+}
+.invoice-user-detail h4{
+    font-size:1.4rem;
+}
+.invoice-user-detail .invoice-name{
+    font-size:2rem;
+}
+.invoice-user-detail .invoice-detail{
+    font-size:1.4rem;
+}
+.invoicing-table{
+    font-size:1.2rem;
+    width:100%;
+}
+.invoicing-table thead{
+    background-color: var(--primary-color);
+}
+.invoicing-table td{
+    padding: 1rem;
+}
+.invoicing-table tbody tr:nth-last-child(2n+1){
+    background-color: var(--form-color);
+}
+.invoicing-table tfoot{
+    padding-top:4rem;
+}
+.invoicing-table tfoot tr:first-of-type td{
+    padding-top: 2rem;
+}
+.invoicing-table tfoot tr:nth-child(3n) td{
+    padding-bottom: 2rem;
+}
+.invoicing-table tfoot td{
+    padding: .4rem 1rem;
+}
+.invoicing-table .tfoot-total td{
+    background-color: var(--primary-color);
+    padding: 1rem;
+    /* border-collapse: collapse; */
+}
+.invoicing-footer{
+    background-color: black;
+    font-size:1.4rem;
+}
+.toggleUp{
+    transform: translateY(-120rem);
+    transition: 1s;
+
+}
+.toggleDown{
+    transform: translateY(0);
+    transition: 1s;
+}
